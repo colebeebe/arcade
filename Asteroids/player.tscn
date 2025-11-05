@@ -46,7 +46,7 @@ script = ExtResource("1_sn77a")
 [node name="Ship" type="Line2D" parent="."]
 points = PackedVector2Array(0, -7, -4, 6, -3.4, 4, 3.4, 4, 4, 6)
 closed = true
-width = 0.5
+width = 0.75
 
 [node name="Flame" type="Line2D" parent="."]
 visible = false

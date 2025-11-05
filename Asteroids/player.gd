@@ -1,11 +1,11 @@
 extends Node2D
 
 const ROTATE_SPEED := 180.0
-const ACCELERATION := 20.0
+const ACCELERATION := 15.0
 
 var velocity := Vector2.ZERO
-var width := DisplayServer.window_get_size().x
-var height := DisplayServer.window_get_size().y
+@onready var width := get_viewport_rect().size.x
+@onready var height := get_viewport_rect().size.y
 
 func _physics_process(delta: float) -> void:
 	handle_input(delta)
