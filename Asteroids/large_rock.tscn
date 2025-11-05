@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1f4v5q8ubhut"]
+
+[ext_resource type="Script" uid="uid://bcqg1xohhfkr6" path="res://Asteroids/rock.gd" id="1_kdawj"]
+
+[node name="LargeRock" type="Node2D"]
+script = ExtResource("1_kdawj")
+
+[node name="Graphic" type="Line2D" parent="."]
+points = PackedVector2Array(-4, 10, 4, 10, 10, 5, 6, 0, 10, -6, 5, -10, 0, -5, -5, -10, -10, -4, -10, 5)
+closed = true
+width = 0.75
