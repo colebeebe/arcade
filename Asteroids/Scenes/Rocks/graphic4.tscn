@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bcku6kqvot5mr"]
+
+[node name="Graphic" type="Line2D"]
+points = PackedVector2Array(-4, 10, 4, 10, 10, 5, 6, 0, 10, -6, 5, -10, 0, -5, -5, -10, -10, -4, -10, 5)
+closed = true
+width = 0.75

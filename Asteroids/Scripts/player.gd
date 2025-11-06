@@ -1,9 +1,9 @@
-extends Node2D
+extends CharacterBody2D
 
 const ROTATE_SPEED := 180.0
 const ACCELERATION := 15.0
 
-var velocity := Vector2.ZERO
+var vel := Vector2.ZERO
 @onready var width := get_viewport_rect().size.x
 @onready var height := get_viewport_rect().size.y
 
@@ -23,14 +23,14 @@ func handle_input(delta: float) -> void:
 	if Input.is_action_pressed("up"):
 		$AnimationPlayer.play("flame_flicker")
 		var forward = Vector2.UP.rotated(rotation)
-		velocity += forward * ACCELERATION 
+		vel += forward * ACCELERATION 
 	else:
 		$AnimationPlayer.stop()
 		$Flame.visible = false
 
 
 func update_position(delta: float) -> void:
-	position += velocity * delta
+	position += vel * delta
 	# x-axis wrapping
 	if position.x > width / 2:
 		position.x = (-width / 2) + 1

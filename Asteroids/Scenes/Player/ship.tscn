@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bnd7g8nf44xi5"]
+
+[node name="Ship" type="Line2D"]
+points = PackedVector2Array(0, -7, -4, 6, -2.5, 4, 2.5, 4, 4, 6)
+closed = true
+width = 0.75
