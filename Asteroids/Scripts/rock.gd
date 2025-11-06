@@ -5,6 +5,7 @@ var vel := Vector2.ZERO
 @onready var width := get_viewport_rect().size.x
 @onready var height := get_viewport_rect().size.y
 
+
 func _ready() -> void:
 	# Choose which graphic to display
 	var graphic = create_graphic_node()
@@ -67,11 +68,14 @@ func create_graphic_node() -> Node:
 	graphic.name = "Graphic"
 	return graphic
 
+
 func break_apart() -> void:
-	var rock_scene = preload("res://Asteroids/Scenes/Rocks/rock.tscn")
+	# If the rock is the smallest size, go ahead and delete it
 	if size == 1:
 		queue_free()
 	else:
+		# Add two rocks that are one size smaller and destroy the original
+		var rock_scene = preload("res://Asteroids/Scenes/Rocks/rock.tscn")
 		for i in 2:
 			var rock = rock_scene.instantiate()
 			rock.size = size - 1
@@ -81,6 +85,7 @@ func break_apart() -> void:
 
 
 func on_body_entered(body: Node) -> void:
+	# If the player has collided with a rock, kill the player and break the rock
 	if body.name == "Player":
 		body.die()
 		call_deferred("break_apart")

@@ -4,6 +4,7 @@ extends Node2D
 
 func _ready() -> void:
 	var rock_scene = preload("res://Asteroids/Scenes/Rocks/rock.tscn")
+	# Add rocks to the scene at a random position
 	for i in 4:
 		var rock = rock_scene.instantiate()
 		add_child(rock)
