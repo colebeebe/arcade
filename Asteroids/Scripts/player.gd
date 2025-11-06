@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
+var lives := 3
+
 const ROTATE_SPEED := 180.0
 const ACCELERATION := 15.0
 
 var vel := Vector2.ZERO
 @onready var width := get_viewport_rect().size.x
 @onready var height := get_viewport_rect().size.y
+
 
 func _physics_process(delta: float) -> void:
 	handle_input(delta)
@@ -41,3 +44,7 @@ func update_position(delta: float) -> void:
 		position.y = (-height / 2) + 1
 	if position.y < -height / 2:
 		position.y = (height / 2) - 1
+
+
+func die() -> void:
+	queue_free()
