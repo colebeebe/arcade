@@ -7,6 +7,7 @@ var vel := Vector2.ZERO
 
 
 func _ready() -> void:
+	add_to_group("rocks")
 	# Choose which graphic to display
 	var graphic = create_graphic_node()
 	add_child(graphic)
