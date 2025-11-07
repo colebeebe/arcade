@@ -35,6 +35,7 @@ func _ready() -> void:
 	rotate(randf() * 6.28)
 	# Set up collision handling
 	connect("body_entered", on_body_entered)
+	connect("area_entered", on_area_entered)
 
 
 func _physics_process(delta: float) -> void:
@@ -88,4 +89,10 @@ func on_body_entered(body: Node) -> void:
 	# If the player has collided with a rock, kill the player and break the rock
 	if body.name == "Player":
 		body.die()
+		call_deferred("break_apart")
+
+
+func on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("bullets"):
+		area.queue_free()
 		call_deferred("break_apart")

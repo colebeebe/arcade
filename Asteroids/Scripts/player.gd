@@ -8,6 +8,7 @@ const ACCELERATION := 15.0
 var vel := Vector2.ZERO
 @onready var width := get_viewport_rect().size.x
 @onready var height := get_viewport_rect().size.y
+@onready var bullet_scene := preload("res://Asteroids/Scenes/bullet.tscn")
 
 
 func _physics_process(delta: float) -> void:
@@ -26,10 +27,18 @@ func handle_input(delta: float) -> void:
 	if Input.is_action_pressed("up"):
 		$AnimationPlayer.play("flame_flicker")
 		var forward = Vector2.UP.rotated(rotation)
-		vel += forward * ACCELERATION 
+		vel += forward * ACCELERATION
 	else:
 		$AnimationPlayer.stop()
 		$Flame.visible = false
+	
+	# Fire bullet. We use is_action_just_pressed() because we only want one
+	# bullet fired per button press
+	if Input.is_action_just_pressed("action"):
+		var bullet = bullet_scene.instantiate()
+		bullet.position = position
+		bullet.vel = Vector2.UP.rotated(rotation).normalized()
+		get_tree().current_scene.add_child(bullet)
 
 
 func update_position(delta: float) -> void:
