@@ -7,6 +7,15 @@ var vel := Vector2.ZERO
 
 
 func _ready() -> void:
+	var grace_timer = Timer.new()
+	add_child(grace_timer)
+	grace_timer.one_shot = true
+	grace_timer.wait_time = 0.5
+	grace_timer.timeout.connect(func(): 
+		$CollisionShape2D.disabled = false
+		grace_timer.queue_free()
+		)
+	grace_timer.start()
 	add_to_group("rocks")
 	# Choose which graphic to display
 	var graphic = create_graphic_node()
@@ -89,7 +98,12 @@ func break_apart() -> void:
 func on_body_entered(body: Node) -> void:
 	# If the player has collided with a rock, kill the player and break the rock
 	if body.name == "Player":
-		body.die()
+		body.lives -= 1
+		if body.lives == 0:
+			body.queue_free()
+		else:
+			body.reset()
+			
 		call_deferred("break_apart")
 
 

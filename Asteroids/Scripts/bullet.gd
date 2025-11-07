@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var SPEED := 200.0
-@export var LIFE_DURATION := 1.5
+@export var LIFE_DURATION := 2.0
 
 var vel := Vector2.ZERO
 @onready var width := get_viewport_rect().size.x

@@ -10,9 +10,22 @@ var vel := Vector2.ZERO
 @onready var height := get_viewport_rect().size.y
 @onready var bullet_scene := preload("res://Asteroids/Scenes/bullet.tscn")
 
+var respawn_timer : Timer
+
+
+func _ready() -> void:
+	respawn_timer = Timer.new()
+	respawn_timer.one_shot = true
+	respawn_timer.wait_time = 1.0
+	respawn_timer.timeout.connect(func(): 
+		visible = true
+		)
+	add_child(respawn_timer)
+
 
 func _physics_process(delta: float) -> void:
-	handle_input(delta)
+	if visible:
+		handle_input(delta)
 	update_position(delta)
 
 
@@ -55,5 +68,9 @@ func update_position(delta: float) -> void:
 		position.y = (height / 2) - 1
 
 
-func die() -> void:
-	queue_free()
+func reset() -> void:
+	respawn_timer.start()
+	visible = false
+	position = Vector2(0.0, 0.0)
+	rotation = 0.0
+	vel = Vector2(0.0, 0.0)
