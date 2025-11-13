@@ -72,7 +72,7 @@ func set_line_weight(weight: float) -> void:
 
 
 func create_graphic_node() -> Node:
-	var variant = randi_range(1, 4)
+	var variant = randi_range(1, 3)
 	var graphic_path = "res://Asteroids/Scenes/Rocks/graphic" + str(variant) + ".tscn"
 	var graphic_scene = load(graphic_path)
 	var graphic = graphic_scene.instantiate()
@@ -93,6 +93,12 @@ func break_apart() -> void:
 			get_tree().current_scene.add_child(rock)
 			rock.position = position
 		queue_free()
+	
+	match size:
+		1: get_parent().score += 100
+		2: get_parent().score += 50
+		3: get_parent().score += 20
+	get_parent().update_score()
 
 
 func on_body_entered(body: Node) -> void:

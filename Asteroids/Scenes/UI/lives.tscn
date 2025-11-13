@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dcspeeijdvu81"]
 
-[ext_resource type="Script" uid="uid://ddaduq27jo7g" path="res://lives.gd" id="1_40ilm"]
+[ext_resource type="Script" uid="uid://ddaduq27jo7g" path="res://Asteroids/Scripts/lives.gd" id="1_40ilm"]
 
 [node name="Lives" type="HBoxContainer"]
 layout_direction = 2
