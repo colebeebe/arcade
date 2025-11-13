@@ -98,8 +98,9 @@ func break_apart() -> void:
 func on_body_entered(body: Node) -> void:
 	# If the player has collided with a rock, kill the player and break the rock
 	if body.name == "Player":
-		body.lives -= 1
-		if body.lives == 0:
+		get_parent().lives -= 1
+		get_parent().update_life_hud()
+		if get_parent().lives == 0:
 			body.queue_free()
 		else:
 			body.reset()

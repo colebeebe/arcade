@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp3c7eu3kbk10"]
+[gd_scene load_steps=4 format=3 uid="uid://cp3c7eu3kbk10"]
 
 [ext_resource type="Script" uid="uid://deg07l27tha4g" path="res://Asteroids/Scripts/asteroids.gd" id="1_53bie"]
 [ext_resource type="PackedScene" uid="uid://n5wqwino3b42" path="res://Asteroids/Scenes/Player/player.tscn" id="1_nsn2w"]
+[ext_resource type="PackedScene" uid="uid://dcspeeijdvu81" path="res://lives.tscn" id="3_hgvri"]
 
 [node name="Asteroids" type="Node2D"]
 script = ExtResource("1_53bie")
@@ -10,3 +11,5 @@ script = ExtResource("1_53bie")
 
 [node name="Player" parent="." instance=ExtResource("1_nsn2w")]
 scale = Vector2(1.65, 1.65)
+
+[node name="Lives" parent="." instance=ExtResource("3_hgvri")]

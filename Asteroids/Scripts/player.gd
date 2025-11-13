@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-var lives := 3
-
 const ROTATE_SPEED := 180.0
 const ACCELERATION := 15.0
 

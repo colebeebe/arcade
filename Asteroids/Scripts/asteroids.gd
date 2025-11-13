@@ -3,15 +3,21 @@ extends Node2D
 @onready var screen_dimensions := get_viewport_rect().size
 @onready var rock_scene = preload("res://Asteroids/Scenes/Rocks/rock.tscn")
 var level := 1
+var lives := 3
 
 func _ready() -> void:
 	spawn_rocks()
+	$Lives.position = screen_dimensions / -2
+	$Lives.position.x += 20
+	$Lives.position.y += 80
+	update_life_hud()
 
 
 func _process(_delta: float) -> void:
 	if get_tree().get_nodes_in_group("rocks").is_empty():
 		level += 1
 		spawn_rocks()
+		
 
 func spawn_rocks() -> void:
 	# Add rocks to the scene at a random position
@@ -21,3 +27,8 @@ func spawn_rocks() -> void:
 		var x = randf_range(0, screen_dimensions.x)
 		var y = randf_range(0, screen_dimensions.y)
 		rock.position = Vector2(x, y)
+
+
+func update_life_hud() -> void:
+	$Lives.num_lives = lives
+	$Lives.update_lives()
