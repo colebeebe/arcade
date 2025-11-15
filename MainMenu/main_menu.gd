@@ -9,26 +9,22 @@ var selection := 1
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("left"):
 		selection = 1
+		reset_label_text()
 		asteroid_label.text = "> Asteroids <"
-		lunar_label.text = "Lunar Lander"
-		exit_label.text = "Quit"
 	elif Input.is_action_just_pressed("right"):
 		selection = 2
-		asteroid_label.text = "Asteroids"
+		reset_label_text()
 		lunar_label.text = "> Lunar Lander <"
-		exit_label.text = "Quit"
 	elif Input.is_action_just_pressed("down"):
 		selection = 3
-		asteroid_label.text = "Asteroids"
-		lunar_label.text = "Lunar Lander"
+		reset_label_text()
 		exit_label.text = "> Quit <"
 	elif Input.is_action_just_pressed("up") && selection == 3:
 		selection = 1
+		reset_label_text()
 		asteroid_label.text = "> Asteroids <"
-		lunar_label.text = "Lunar Lander"
-		exit_label.text = "Quit"
 	
-	if Input.is_action_just_pressed("action"):
+	if Input.is_action_just_pressed("action") or Input.is_action_just_pressed("special"):
 		match selection:
 			1:
 				var asteroids = load("res://Asteroids/asteroids.tscn")
@@ -43,3 +39,9 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("escape"):
 		get_tree().quit()
+
+
+func reset_label_text():
+	asteroid_label.text = "Asteroids"
+	lunar_label.text = "Lunar Lander"
+	exit_label.text = "Quit"
