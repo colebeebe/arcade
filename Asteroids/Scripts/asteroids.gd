@@ -44,7 +44,7 @@ func update_life_hud() -> void:
 	if lives == 0:
 		var go_message = Label.new()
 		add_child(go_message)
-		go_message.text = "Game Over"
+		go_message.text = "GAME OVER"
 
 
 func update_score() -> void:
