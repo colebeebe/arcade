@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbr5dkvmvtqax"]
+[gd_scene load_steps=3 format=3 uid="uid://dbr5dkvmvtqax"]
 
 [ext_resource type="Script" uid="uid://cobu74d1v6a4l" path="res://LunarLander/terrain.gd" id="1_pgtc3"]
+[ext_resource type="PackedScene" uid="uid://bcwgpurli3lsy" path="res://LunarLander/Scenes/Terrain/point_box.tscn" id="2_jd7hj"]
 
-[node name="Terrain1" type="StaticBody2D"]
+[node name="Terrain1" type="Area2D"]
 script = ExtResource("1_pgtc3")
 
 [node name="Line2D" type="Line2D" parent="."]
@@ -13,3 +14,54 @@ width = 1.2
 [node name="Terrain" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.7856598, 1)
 polygon = PackedVector2Array(0, 768, 0, 600, 17, 574, 29, 556, 39, 534, 52, 523, 81, 517, 108, 532, 124, 561, 152, 593, 184, 632, 184, 640, 259, 640, 259, 632, 289, 595, 310, 570, 339, 572, 362, 554, 376, 497, 391, 432, 391, 440, 413, 440, 413, 432, 426, 394, 432, 345, 462, 337, 481, 298, 523, 274, 555, 288, 597, 323, 599, 356, 628, 375, 688, 442, 678, 481, 713, 528, 747, 610, 777, 681, 777, 689, 898, 689, 898, 681, 917, 616, 938, 584, 981, 567, 1014, 576, 1028, 586, 1061, 647, 1061, 655, 1133, 655, 1133, 647, 1205, 572, 1243, 478, 1303, 394, 1303, 768)
+
+[node name="PointBoxes" type="Node2D" parent="."]
+
+[node name="2xBox" parent="PointBoxes" instance=ExtResource("2_jd7hj")]
+position = Vector2(658, 685)
+scale = Vector2(4.8, 0.4)
+
+[node name="Label" type="Label" parent="PointBoxes/2xBox"]
+offset_left = -2.2916665
+offset_top = -7.5
+offset_right = 15.708334
+offset_bottom = 15.5
+scale = Vector2(0.23, 2.6)
+text = "2x"
+
+[node name="3xBox1" parent="PointBoxes" instance=ExtResource("2_jd7hj")]
+position = Vector2(174, 636)
+scale = Vector2(2.98, 0.4)
+
+[node name="Label" type="Label" parent="PointBoxes/3xBox1"]
+offset_left = -4.0268455
+offset_right = 13.973154
+offset_bottom = 23.0
+scale = Vector2(0.44, 2.6)
+text = "3x"
+
+[node name="3xBox2" parent="PointBoxes" instance=ExtResource("2_jd7hj")]
+position = Vector2(862, 651)
+scale = Vector2(2.88, 0.4)
+
+[node name="Label" type="Label" parent="PointBoxes/3xBox2"]
+offset_left = -4.1666665
+offset_top = -10.000001
+offset_right = 13.833334
+offset_bottom = 12.999999
+scale = Vector2(0.41, 2.6)
+text = "3x"
+
+[node name="5xBox" parent="PointBoxes" instance=ExtResource("2_jd7hj")]
+position = Vector2(316, 436)
+scale = Vector2(0.89, 0.4)
+
+[node name="Label" type="Label" parent="PointBoxes/5xBox"]
+offset_left = -11.235954
+offset_top = -5.0
+offset_right = 6.7640457
+offset_bottom = 18.0
+scale = Vector2(1.26, 2.6)
+text = "5x"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
