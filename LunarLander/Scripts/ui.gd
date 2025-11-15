@@ -1,6 +1,6 @@
 extends Control
 
-@onready var game = get_tree().current_scene
+@onready var game = get_tree().current_scene.get_node("LunarLander")
 @onready var player = game.get_node("Player")
 
 const VELOCITY_MULTIPLIER := 1.95
