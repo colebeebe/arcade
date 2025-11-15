@@ -31,11 +31,13 @@ layout_mode = 2
 theme_override_constants/separation = 80
 
 [node name="Asteroids" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "> Asteroids <"
 horizontal_alignment = 1
 
 [node name="LunarLander" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Lunar Lander"
 horizontal_alignment = 1
