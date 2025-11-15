@@ -1,16 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2ny6xqvkvqks"]
+[gd_scene load_steps=5 format=3 uid="uid://b2ny6xqvkvqks"]
 
 [ext_resource type="PackedScene" uid="uid://dbr5dkvmvtqax" path="res://LunarLander/Scenes/Terrain/terrain1.tscn" id="1_rt85t"]
+[ext_resource type="Script" uid="uid://dmxgrw1fjcxls" path="res://LunarLander/Scripts/lunar_lander.gd" id="1_yegab"]
 [ext_resource type="PackedScene" uid="uid://cftkixfgnvhm4" path="res://LunarLander/Scenes/Player/player.tscn" id="2_pfre6"]
 [ext_resource type="PackedScene" uid="uid://ds4fmu7cwqx5d" path="res://LunarLander/Scenes/UI/ui.tscn" id="3_pfre6"]
 
 [node name="LunarLander" type="Node2D"]
+script = ExtResource("1_yegab")
 
 [node name="Terrain1" parent="." instance=ExtResource("1_rt85t")]
 
 [node name="Player" parent="." instance=ExtResource("2_pfre6")]
 position = Vector2(68, 126)
-scale = Vector2(1.18, 1.18)
+scale = Vector2(1.1, 1.1)
 line_weight = 0.8
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -34,12 +34,20 @@ func handle_input(delta: float) -> void:
 	
 	# Apply thrust
 	if Input.is_action_pressed("up") && fuel > 0:
+		$AnimationPlayer.play("flame_flicker")
 		var forward = Vector2.UP.rotated(rotation)
 		vel += forward * ACCELERATION
 		fuel -= delta * 16
 		if fuel < 0.0: fuel = 0.0
+	else:
+		kill_animation()
 
 
 func update_position(delta: float) -> void:
 	vel += Vector2(0.0, GRAVITY_SPEED)
 	position += vel * delta
+
+
+func kill_animation():
+	$AnimationPlayer.stop()
+	$Graphics/Flame.visible = false

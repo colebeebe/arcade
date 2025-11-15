@@ -32,6 +32,7 @@ text = "2x"
 [node name="3xBox1" parent="PointBoxes" instance=ExtResource("2_jd7hj")]
 position = Vector2(174, 636)
 scale = Vector2(2.98, 0.4)
+point_multiplier = 3
 
 [node name="Label" type="Label" parent="PointBoxes/3xBox1"]
 offset_left = -4.0268455
@@ -43,6 +44,7 @@ text = "3x"
 [node name="3xBox2" parent="PointBoxes" instance=ExtResource("2_jd7hj")]
 position = Vector2(862, 651)
 scale = Vector2(2.88, 0.4)
+point_multiplier = 3
 
 [node name="Label" type="Label" parent="PointBoxes/3xBox2"]
 offset_left = -4.1666665
@@ -55,6 +57,7 @@ text = "3x"
 [node name="5xBox" parent="PointBoxes" instance=ExtResource("2_jd7hj")]
 position = Vector2(316, 436)
 scale = Vector2(0.89, 0.4)
+point_multiplier = 5
 
 [node name="Label" type="Label" parent="PointBoxes/5xBox"]
 offset_left = -11.235954
