@@ -53,3 +53,5 @@ func update_score() -> void:
 		next_life += 10000
 		lives += 1
 		update_life_hud()
+	if score == 0:
+		$GameOver.visible = true
