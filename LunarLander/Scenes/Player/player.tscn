@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://cftkixfgnvhm4"]
+
+[ext_resource type="Script" uid="uid://dqhywdnf48j3k" path="res://LunarLander/Scripts/player.gd" id="1_psgd4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lacr"]
+size = Vector2(16, 13)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_psgd4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_5lacr")
+
+[node name="Graphics" type="Node2D" parent="."]
+
+[node name="Bubble" type="Line2D" parent="Graphics"]
+position = Vector2(1, 2)
+points = PackedVector2Array(-2, -9, -4, -7, -4, -5, -2, -3, 0, -3, 2, -5, 2, -7, 0, -9)
+closed = true
+width = 1.0
+
+[node name="Ring" type="Line2D" parent="Graphics"]
+points = PackedVector2Array(-4, -1, 4, -1, 5, 0, 5, 1, -5, 1, -5, 0)
+closed = true
+width = 1.0
+
+[node name="Bell" type="Line2D" parent="Graphics"]
+points = PackedVector2Array(-1, 1, -2, 5, 2, 5, 1, 1)
+width = 1.0
+
+[node name="Leg_L" type="Line2D" parent="Graphics"]
+points = PackedVector2Array(-4, 1, -6, 6, -8, 6, -4, 6)
+width = 1.0
+
+[node name="Leg_R" type="Line2D" parent="Graphics"]
+points = PackedVector2Array(4, 1, 6, 6, 8, 6, 4, 6)
+width = 1.0
+
+[node name="Flame" type="Line2D" parent="Graphics"]
+points = PackedVector2Array(-1, 6, 0, 14, 1, 6)
+width = 1.0
