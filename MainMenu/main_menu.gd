@@ -6,6 +6,12 @@ var selection := 1
 @onready var lunar_label = $VBoxContainer/HBoxContainer/LunarLander
 @onready var exit_label = $VBoxContainer/Exit
 
+
+func _ready() -> void:
+	# Make sure the mouse doesn't show up on screen
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("left"):
 		selection = 1
