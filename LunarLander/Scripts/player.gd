@@ -15,7 +15,7 @@ func _ready() -> void:
 		graphic.width = line_weight
 	rotate(-PI / 2)
 	var h_speed = randf_range(25.0, 32.0)
-	var v_speed = randf_range(-3.0, 3.0)
+	var v_speed = randf_range(-10.0, 3.0)
 	vel = Vector2(h_speed, v_speed)
 
 
