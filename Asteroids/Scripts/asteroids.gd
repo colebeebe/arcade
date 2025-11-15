@@ -37,6 +37,10 @@ func spawn_rocks() -> void:
 func update_life_hud() -> void:
 	$Lives.num_lives = lives
 	$Lives.update_lives()
+	if lives == 0:
+		var go_message = Label.new()
+		add_child(go_message)
+		go_message.text = "Game Over"
 
 
 func update_score() -> void:

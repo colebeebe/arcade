@@ -12,7 +12,8 @@ func _ready() -> void:
 	grace_timer.one_shot = true
 	grace_timer.wait_time = 0.5
 	grace_timer.timeout.connect(func(): 
-		$CollisionShape2D.disabled = false
+		collision_layer |= 1
+		collision_mask |= 1
 		grace_timer.queue_free()
 		)
 	grace_timer.start()
