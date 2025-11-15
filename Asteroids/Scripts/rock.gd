@@ -43,7 +43,7 @@ func _ready() -> void:
 	# Rotate the rock randomly. Here, randf() gives us a random float between
 	# 0.0 and 1.0, and rotate() expects radians, so we multiply the random
 	# number by 2 * PI so it can be any rotation
-	rotate(randf() * 6.28)
+	rotate(randf() * 2 * PI)
 	# Set up collision handling
 	connect("body_entered", on_body_entered)
 	connect("area_entered", on_area_entered)
