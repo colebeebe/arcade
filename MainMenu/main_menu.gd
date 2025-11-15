@@ -40,3 +40,6 @@ func _process(_delta: float) -> void:
 				get_tree().current_scene.add_child(lunar.instantiate())
 			3:
 				get_tree().quit()
+	
+	if Input.is_action_just_pressed("escape"):
+		get_tree().quit()
