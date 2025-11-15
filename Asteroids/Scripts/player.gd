@@ -49,7 +49,7 @@ func handle_input(delta: float) -> void:
 		var bullet = bullet_scene.instantiate()
 		bullet.position = position
 		bullet.vel = Vector2.UP.rotated(rotation).normalized()
-		get_tree().current_scene.add_child(bullet)
+		get_tree().current_scene.get_node("Asteroids").add_child(bullet)
 
 
 func update_position(delta: float) -> void:

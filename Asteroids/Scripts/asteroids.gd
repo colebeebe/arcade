@@ -22,6 +22,10 @@ func _process(_delta: float) -> void:
 	if get_tree().get_nodes_in_group("rocks").is_empty():
 		level += 1
 		spawn_rocks()
+	if Input.is_action_just_pressed("escape"):
+		var menu = load("res://MainMenu/MainMenu.tscn")
+		get_tree().current_scene.add_child(menu.instantiate())
+		self.queue_free()
 		
 
 func spawn_rocks() -> void:

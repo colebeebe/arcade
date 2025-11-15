@@ -91,7 +91,7 @@ func break_apart() -> void:
 		for i in 2:
 			var rock = rock_scene.instantiate()
 			rock.size = size - 1
-			get_tree().current_scene.add_child(rock)
+			get_tree().current_scene.get_node("Asteroids").add_child(rock)
 			rock.position = position
 		queue_free()
 	
